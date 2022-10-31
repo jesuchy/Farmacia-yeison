@@ -1,15 +1,37 @@
-<?php  
+<?php
+////////////////////////////////////
+// Leemos el archivo de configuración
+////////////////////////////////////
+$Config = parse_ini_file('config.ini', true);
 
-//configuracion de acceso a la base de datos 
-define('DB_HOST', 'localhost');
-define('DB_USUARIO', 'root');
-define('DB_PASSWORD', '');
-define('DB_NOMBRE', 'farmacia');
+////////////////////////////////////
+// Conexion a la base de datos
+////////////////////////////////////
+define('DB_HOST', $Config['database']['host']);
+define('DB_USERNAME', $Config['database']['username']);
+define('DB_PASSWORD', $Config['database']['password']);
+define('DB_SCHEMA', $Config['database']['schema']);
+/////////////////////////////////////
+// Ruta de la aplicacion
+/////////////////////////////////////
+define('RUTA_APP',dirname(dirname(__FILE__)) . "/");
 
-// Ruta de la aplicacion 
-define('RUTA_APP', dirname(dirname(__FILE__))) ;
+////////////////////////////////////
+// Ruta de la URL
+// Ejemplo http://localhost/nombreapp
+////////////////////////////////////
+define('RUTA_URL', $Config['application']['route']);
 
-//rUTA URL Ejemplo:http://localhost/MVC2/
-define('RUTA_URL', 'http://localhost/Farmacia-yeison');
+//////////////////////////////////////
+// Valores configuracion
+/////////////////////////////////////
+//error_reporting(0);
 
-define('NOMBRESITIO', '_NOMBRE_SITIO');
+define('ERROR_REPORTING_LEVEL', -1);
+define('WR_DEBUG', false);
+
+/////////////////////////////////////
+// Datos del Sitio
+/////////////////////////////////////
+define('NAME_SEE', $Config['application']['name']);
+define('VERSION_SEE', $Config['application']['version']);
