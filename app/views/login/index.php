@@ -50,13 +50,24 @@
 
 
                 <div class="ContRegistrar">
+                    <div class="user-box">
+                        <input type="text" class="Input" name="" required="" value="" placeholder="">
+                        <label>Nombre</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" class="password" required="" placeholder="">
+                        <label>Apellido</label>
+                    </div>
                     <div class="cont_select_center">
                         <div class="select_mate" data-mate-select="active">
                             <select name="" onchange="" onclick="return false;" id="">
-                                <option value="">Seleciona una Opcion </option>
-                                <option value="1">Select option 1</option>
-                                <option value="2">Select option 2</option>
-                                <option value="3">Select option 3</option>
+                                <option value="">Tipo de documento </option>
+                                <option value="CC">CC</option>
+                                <option value="CE">CE</option>
+                                <option value="TI">TI</option>
+                                <option value="SSN">SSN</option>
+                                <option value="NIT">NIT</option>
+                                <option value="PPN">PPN</option>
                             </select>
                             <p class="selecionado_opcion" onclick="open_select(this)"></p><span onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
@@ -66,35 +77,28 @@
                                 <ul class="cont_select_int"> </ul>
                             </div>
                         </div>
-                    </div>  
-                    <div class="user-box">
-                        <input type="text" class="password" required="" placeholder="">
-                        <label>Contraseña</label>
-                    </div>
-                    <div class="user-box">
-                        <input type="text" class="Input" name="" required="" value="" placeholder="">
-                        <label>Usuario</label>
                     </div>
                     <div class="user-box">
                         <input type="text" class="password" required="" placeholder="">
-                        <label>Contraseña</label>
+                        <label>Numero de documento</label>
                     </div>
+
                     <div class="user-box">
                         <input type="text" class="Input" name="" required="" value="" placeholder="">
-                        <label>Usuario</label>
+                        <label>Nombre de la empresa que representa</label>
                     </div>
                     <div class="user-box">
                         <input type="text" class="password" required="" placeholder="">
-                        <label>Contraseña</label>
+                        <label>Correo electronico</label>
                     </div>
                     <div class="user-box">
                         <input type="text" class="Input" name="" required="" value="" placeholder="">
-                        <label>Usuario</label>
+                        <label>Direccion</label>
                     </div>
 
                     <div class="user-box">
                         <input type="text" class="password" required="" placeholder="">
-                        <label>Contraseña</label>
+                        <label>Numero celular</label>
                     </div>
                     <a type="button">
                         <span></span>
