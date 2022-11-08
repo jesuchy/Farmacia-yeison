@@ -19,6 +19,5 @@ class Personal extends Controlador{
             'Contra'=> $_POST['Contra']
         ];
         $this->PersonaModel->registrarPersona($datos);
-        return $resp = "";
    	}
 }

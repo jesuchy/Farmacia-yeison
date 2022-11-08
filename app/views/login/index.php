@@ -19,7 +19,7 @@
 
     <div class="contenido">
         <div class="login-box">
-            <form>
+            <div>
                 <div class="Nav">
                     <div class="Login Border">
                         Login
@@ -29,27 +29,28 @@
                     </div>
                 </div>
 
-                <div class="ContLogin">
+                <form action="<?php echo RUTA_URL?>/Login/loginUsuario" method="POST" class="ContLogin" id="ContLogin">
+                    
                     <div class="user-box">
-                        <input type="text" class="Input" name="" required="" value="" placeholder="">
+                        <input type="text" name="correo" class="Input" name="" required="" value="" placeholder="">
                         <label>Correo</label>
                     </div>
                     <div class="user-box">
-                        <input type="text" class="password" required="" placeholder="">
+                        <input type="text" name="contraseña" class="password" required="" placeholder="">
                         <label>Contraseña</label>
                     </div>
 
-                    <a type="button">
+                    <a type="submit" id="iniciarSession"> 
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
                         iniciar sesión
                     </a>
-                </div>
+                </form>
 
 
-                <div class="ContRegistrar">
+                <form class="ContRegistrar">
                     <div class="user-box">
                         <input type="text" class="Input" name="" required="" value="" placeholder="" id="Nombre">
                         <label>Nombre</label>
@@ -82,17 +83,14 @@
                         <input type="text" class="" required="" placeholder="" id="Documento">
                         <label>Numero de documento</label>
                     </div>
-
                     <div class="user-box">
                         <input type="text" class="Input" name="" required="" value="" placeholder="" id="Empresa">
                         <label>Nombre de la empresa que representa</label>
                     </div>
-
                     <div class="user-box">
                         <input type="text" class="Input" name="" required="" value="" placeholder="" id="Direccion">
                         <label>Direccion</label>
                     </div>
-
                     <div class="user-box">
                         <input type="text" class="" required="" placeholder="" id="Celular">
                         <label>Numero celular</label>
@@ -112,8 +110,8 @@
                         <span></span>
                         Registrar
                     </a>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -197,19 +195,31 @@
                     Apellido: Apellido,
                     TipoDocumento: TipoDocumento,
                     Documento: Documento,
-                    Empresa : Empresa,
+                    Empresa: Empresa,
                     Direccion: Direccion,
                     Celular: Celular,
                     CorreoElectronico: CorreoElectronico,
                     Contra: Contra
                 }
-            }).done(function(resp) {
-                console.log(resp);
-                alert("Funciono la joda");
-            }).fail(function(){
+            }).done(function() {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Registrado exitosamente',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                setTimeout(function() {
+                    location.reload();
+                }, 3000);
+            }).fail(function() {
                 alert("Algo esta patinando");
             })
 
         });
+
+        $("#iniciarSession").click(function(){
+            document.getElementById("ContLogin").submit(); 
+        })
     })
 </script>

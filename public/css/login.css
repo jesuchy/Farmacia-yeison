@@ -29,10 +29,10 @@ body {
   border-radius: 10px;
   margin: 57px 0px 0px 0px;
 }
-.login-box form {
+/* .login-box form {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .login-box .Nav {
   width: 100%;

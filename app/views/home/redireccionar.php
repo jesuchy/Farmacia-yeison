@@ -1,15 +1,52 @@
-<?php require_once RUTA_APP . '/views/inc/header.php'; ?>
-<script>
-    var user = "<?php echo $_SESSION['sesion_active']['tipo_usuario']?>";
-    if(user == 'ADMINISTRADOR'){
-        window.location.replace('<?php echo RUTA_URL?>/Home/Index');
-    }else{
-        if(user == 'A'){
-            window.location.replace('<?php echo RUTA_URL?>/Home/admin');
-        }else{
-            if(user == 'U'){
-                window.location.replace('<?php echo RUTA_URL?>/Home/usuario');
-            }
-        }
-    }
-</script>
+<!-- <?php // require_once RUTA_APP . '/views/inc/header.php'; ?> -->
+<?php require_once RUTA_APP . '/views/template.php'; ?>
+
+
+<div class="conten">
+        <h1>Compra en linea</h1>
+        <div class="con">
+            <div class="Producto">
+                <div class="Caja">
+                    <i class="fa-regular fa-dollar-sign"></i>
+                    <div>
+                        <h4>nombre Producto</h4>
+                        <span>1203</span>
+                    </div>
+                </div>
+                <div class="Caja">
+                    <i class="fa-regular fa-dollar-sign"></i>
+                    <div>
+                        <h4>nombre Producto</h4>
+                        <span>1203</span>
+                    </div>
+                </div>
+                <div class="Caja">
+                    <i class="fa-regular fa-dollar-sign"></i>
+                    <div>
+                        <h4>nombre Producto</h4>
+                        <span>1203</span>
+                    </div>
+                </div>
+                <div class="Caja">
+                    <i class="fa-regular fa-dollar-sign"></i>
+                    <div>
+                        <h4>nombre Producto</h4>
+                        <span>1203</span>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="Form">
+                <h3>
+                    detalles de la compra
+                </h3>
+                <p>costo: <span>100</span></p>
+                <p>costo: <span>100</span></p>
+                <p>costo: <span>100</span></p>
+                <p>costo: <span>100</span></p>
+                <p>costo: <span>100</span></p>
+    
+                <button>Comprar</button>
+            </div>
+        </div>
+    </div>
