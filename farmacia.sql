@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2022 a las 19:24:52
--- Versión del servidor: 10.1.29-MariaDB
--- Versión de PHP: 7.1.12
+-- Tiempo de generación: 08-11-2022 a las 02:34:56
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,47 +18,54 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `farmacia`
+-- Base de datos: `compra`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `articulos`
+-- Estructura de tabla para la tabla `tbl_personal`
 --
 
-CREATE TABLE `articulos` (
-  `id_articulo` int(11) NOT NULL,
-  `titulo` varchar(255) COLLATE utf8_spanish2_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+CREATE TABLE `tbl_personal` (
+  `tbl_personal_ID` int(11) NOT NULL,
+  `tbl_personal_NOMBRE` varchar(30) NOT NULL,
+  `tbl_personal_APELLIDO` varchar(30) NOT NULL,
+  `tbl_personal_TIPO_DOCUMENTO` varchar(10) NOT NULL,
+  `tbl_personal_DOCUMENTO` varchar(20) NOT NULL,
+  `tbl_personal_EMPRESA` varchar(30) NOT NULL,
+  `tbl_personal_DIRECCION` varchar(30) NOT NULL,
+  `tbl_personal_CELULAR` varchar(30) NOT NULL,
+  `tbl_personal_CORREO` varchar(50) NOT NULL,
+  `tbl_personal_PASSWORD` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `articulos`
+-- Volcado de datos para la tabla `tbl_personal`
 --
 
-INSERT INTO `articulos` (`id_articulo`, `titulo`) VALUES
-(1, 'ejemplo articulo 1.2 '),
-(2, 'ejemplo articulo 2');
+INSERT INTO `tbl_personal` (`tbl_personal_ID`, `tbl_personal_NOMBRE`, `tbl_personal_APELLIDO`, `tbl_personal_TIPO_DOCUMENTO`, `tbl_personal_DOCUMENTO`, `tbl_personal_EMPRESA`, `tbl_personal_DIRECCION`, `tbl_personal_CELULAR`, `tbl_personal_CORREO`, `tbl_personal_PASSWORD`) VALUES
+(2, 'jeus', 'Chaeey', 'xx', 'Documento', 'Empresa', 'Direccion', 'Celular', 'CorreoElectronico', 'Contra');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `articulos`
+-- Indices de la tabla `tbl_personal`
 --
-ALTER TABLE `articulos`
-  ADD PRIMARY KEY (`id_articulo`);
+ALTER TABLE `tbl_personal`
+  ADD PRIMARY KEY (`tbl_personal_ID`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `articulos`
+-- AUTO_INCREMENT de la tabla `tbl_personal`
 --
-ALTER TABLE `articulos`
-  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tbl_personal`
+  MODIFY `tbl_personal_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

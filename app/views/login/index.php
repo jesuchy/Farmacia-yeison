@@ -32,7 +32,7 @@
                 <div class="ContLogin">
                     <div class="user-box">
                         <input type="text" class="Input" name="" required="" value="" placeholder="">
-                        <label>Usuario</label>
+                        <label>Correo</label>
                     </div>
                     <div class="user-box">
                         <input type="text" class="password" required="" placeholder="">
@@ -51,16 +51,16 @@
 
                 <div class="ContRegistrar">
                     <div class="user-box">
-                        <input type="text" class="Input" name="" required="" value="" placeholder="">
+                        <input type="text" class="Input" name="" required="" value="" placeholder="" id="Nombre">
                         <label>Nombre</label>
                     </div>
                     <div class="user-box">
-                        <input type="text" class="password" required="" placeholder="">
+                        <input type="text" class="Input" required="" placeholder="" id="Apellido">
                         <label>Apellido</label>
                     </div>
                     <div class="cont_select_center">
                         <div class="select_mate" data-mate-select="active">
-                            <select name="" onchange="" onclick="return false;" id="">
+                            <select name="" onchange="" onclick="return false;" id="TipoDocumento">
                                 <option value="">Tipo de documento </option>
                                 <option value="CC">CC</option>
                                 <option value="CE">CE</option>
@@ -79,28 +79,33 @@
                         </div>
                     </div>
                     <div class="user-box">
-                        <input type="text" class="password" required="" placeholder="">
+                        <input type="text" class="" required="" placeholder="" id="Documento">
                         <label>Numero de documento</label>
                     </div>
 
                     <div class="user-box">
-                        <input type="text" class="Input" name="" required="" value="" placeholder="">
+                        <input type="text" class="Input" name="" required="" value="" placeholder="" id="Empresa">
                         <label>Nombre de la empresa que representa</label>
                     </div>
+
                     <div class="user-box">
-                        <input type="text" class="password" required="" placeholder="">
-                        <label>Correo electronico</label>
-                    </div>
-                    <div class="user-box">
-                        <input type="text" class="Input" name="" required="" value="" placeholder="">
+                        <input type="text" class="Input" name="" required="" value="" placeholder="" id="Direccion">
                         <label>Direccion</label>
                     </div>
 
                     <div class="user-box">
-                        <input type="text" class="password" required="" placeholder="">
+                        <input type="text" class="" required="" placeholder="" id="Celular">
                         <label>Numero celular</label>
                     </div>
-                    <a type="button">
+                    <div class="user-box">
+                        <input type="text" class="" required="" placeholder="" id="CorreoElectronico">
+                        <label>Correo electronico</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" class="password" required="" placeholder="" id="Password">
+                        <label>Contraseña</label>
+                    </div>
+                    <a type="button" id="BtnRegistrar" type="button">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -156,5 +161,55 @@
             $(".Login").addClass("Border");
         });
 
-    });
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://stoplight.io/mocks/placetopay-api/webcheckout-docs/10862976/api/session",
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "processData": false,
+            "data": "{\n  \"locale\": \"es_CO\",\n  \"auth\": {\n    \"login\": \"6dd490faf9cb87a9862245da41170ff2\",\n    \"tranKey\": \"/iQhxZqnRbJe\",\n    \"nonce\": \"NjE0OWVkODgwYjNhNw==\",\n    \"seed\": \"2021-09-21T09:34:48-05:00\"\n  },\n  \"payment\": {\n    \"reference\": \"1122334455\",\n    \"description\": \"Prueba\",\n    \"amount\": {\n      \"currency\": \"USD\",\n      \"total\": 100\n    }\n  },\n  \"expiration\": \"2021-12-30T00:00:00-05:00\",\n  \"returnUrl\": \"https://dnetix.co/p2p/client\",\n  \"ipAddress\": \"127.0.0.1\",\n  \"userAgent\": \"PlacetoPay Sandbox\"\n}"
+        };
+
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+        });
+
+        $("#BtnRegistrar").click(function() {
+            var Nombre = $('#Nombre').val();
+            var Apellido = $('#Apellido').val();
+            var TipoDocumento = $('#TipoDocumento').val();
+            var Documento = $('#Documento').val();
+            var Empresa = $('#Empresa').val();
+            var Direccion = $('#Direccion').val();
+            var Celular = $('#Celular').val();
+            var CorreoElectronico = $('#CorreoElectronico').val();
+            var Contra = $('#Password').val();
+            console.log(Nombre + Apellido + TipoDocumento + Documento + Empresa + Direccion + Celular + CorreoElectronico + Contra);
+
+            $.ajax({
+                url: '<?php echo RUTA_URL ?>/Personal/registrarPersona',
+                type: 'POST',
+                data: {
+                    Nombre: Nombre,
+                    Apellido: Apellido,
+                    TipoDocumento: TipoDocumento,
+                    Documento: Documento,
+                    Empresa : Empresa,
+                    Direccion: Direccion,
+                    Celular: Celular,
+                    CorreoElectronico: CorreoElectronico,
+                    Contra: Contra
+                }
+            }).done(function(resp) {
+                console.log(resp);
+                alert("Funciono la joda");
+            }).fail(function(){
+                alert("Algo esta patinando");
+            })
+
+        });
+    })
 </script>
