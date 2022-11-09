@@ -32,7 +32,7 @@
                 <form action="<?php echo RUTA_URL?>/Login/loginUsuario" method="POST" class="ContLogin" id="ContLogin">
                     
                     <div class="user-box">
-                        <input type="text" name="correo" class="Input" name="" required="" value="" placeholder="">
+                        <input type="text" name="correo" class="InpLogin" name="" required="" value="" placeholder="">
                         <label>Correo</label>
                     </div>
                     <div class="user-box">
@@ -114,19 +114,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="Contenedor">
-        <h1>Compra en linea</h1>
-        <div class="Producto">
-            <i class="fa-regular fa-dollar-sign"></i>
-
-        </div>
-        <div class="Form">
-
-        </div>
-    </div> -->
-
-
 </body>
 
 
@@ -159,22 +146,6 @@
             $(".Login").addClass("Border");
         });
 
-        const settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://stoplight.io/mocks/placetopay-api/webcheckout-docs/10862976/api/session",
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "processData": false,
-            "data": "{\n  \"locale\": \"es_CO\",\n  \"auth\": {\n    \"login\": \"6dd490faf9cb87a9862245da41170ff2\",\n    \"tranKey\": \"/iQhxZqnRbJe\",\n    \"nonce\": \"NjE0OWVkODgwYjNhNw==\",\n    \"seed\": \"2021-09-21T09:34:48-05:00\"\n  },\n  \"payment\": {\n    \"reference\": \"1122334455\",\n    \"description\": \"Prueba\",\n    \"amount\": {\n      \"currency\": \"USD\",\n      \"total\": 100\n    }\n  },\n  \"expiration\": \"2021-12-30T00:00:00-05:00\",\n  \"returnUrl\": \"https://dnetix.co/p2p/client\",\n  \"ipAddress\": \"127.0.0.1\",\n  \"userAgent\": \"PlacetoPay Sandbox\"\n}"
-        };
-
-        $.ajax(settings).done(function(response) {
-            console.log(response);
-        });
-
         $("#BtnRegistrar").click(function() {
             var Nombre = $('#Nombre').val();
             var Apellido = $('#Apellido').val();
@@ -185,7 +156,6 @@
             var Celular = $('#Celular').val();
             var CorreoElectronico = $('#CorreoElectronico').val();
             var Contra = $('#Password').val();
-            console.log(Nombre + Apellido + TipoDocumento + Documento + Empresa + Direccion + Celular + CorreoElectronico + Contra);
 
             $.ajax({
                 url: '<?php echo RUTA_URL ?>/Personal/registrarPersona',
@@ -218,8 +188,16 @@
 
         });
 
+        // Validamos que los campos de login esten llenos 
+
         $("#iniciarSession").click(function(){
-            document.getElementById("ContLogin").submit(); 
+            var correo = $(".InpLogin").val();
+            var Contra = $(".password").val();
+            if(correo == "" || Contra == ""){
+                alert("Hay campos vacios");
+            }else{
+                document.getElementById("ContLogin").submit(); 
+            }
         })
     })
 </script>

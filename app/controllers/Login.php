@@ -14,7 +14,6 @@ class Login extends Controlador{
    	}
 
     public function loginUsuario(){
-        if (!isset($_SESSION['sesion_active'])):
 			if ($_SERVER['REQUEST_METHOD'] == 'POST'): 
 				$username = trim($_POST['correo']);
 				$password = trim($_POST['contraseña']);
@@ -40,10 +39,7 @@ class Login extends Controlador{
 					endif;
 				endif;
 			endif;	
-		else:
-		    unset($_SESSION['sesion_active']);
-			$this->vista('login/index');
-		endif;
+		
     }
 	public function Logout(){
 		unset($_SESSION['sesion_active']);
